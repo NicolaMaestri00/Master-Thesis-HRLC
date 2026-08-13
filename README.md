@@ -3,7 +3,7 @@
 > 🏫 University of Trento | 🛰️ Remote Sensing Lab | 📅 A.Y. 2024/2025 | 🎓 Master Thesis
 
 <p align="center">
-  <video src="images/video_1.mp4" controls width="720">
+  <video src="https://github.com/user-attachments/assets/4dbe472a-9cca-4cff-8756-371fbb9e9bbc" controls width="720">
   </video>
 </p>
 
