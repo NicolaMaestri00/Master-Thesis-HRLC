@@ -14,11 +14,11 @@
 ## Study Area
 
 <p align="center">
-  <a href="http://localhost:5174/">
+  <a href="http://localhost:5174/" target="_blank">
     <img src="images/tile_21KUQ.png" width="180">
   </a>
   <img src="images/sud_america.png" width="400">
-  <a href="http://localhost:5173/">
+  <a href="http://localhost:5173/" target="_blank">
     <img src="images/tile_22KGV.png" width="180">
   </a>
 </p>
