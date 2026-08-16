@@ -14,11 +14,11 @@
 ## Study Area
 
 <p align="center">
-  <a href="http://192.168.0.104/21kuq/">
+  <a href="http://3.120.171.141/21kuq/">
     <img src="images/tile_21KUQ.png" width="180">
   </a>
   <img src="images/sud_america.png" width="400">
-  <a href="http://192.168.0.104/22kgv/">
+  <a href="http://3.120.171.141/22kgv/">
     <img src="images/tile_22KGV.png" width="180">
   </a>
 </p>
