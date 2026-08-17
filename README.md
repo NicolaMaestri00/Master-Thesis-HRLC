@@ -100,9 +100,7 @@ The new land cover maps obtained for tile 21KUQ and tile 22KGV can be visualized
 learnt relationship and some tables
 -->
 
-## Struttura Progetto
-
-> 🚦Codice sorgente disponibile su richiesta.
+## Project Structure
 
 ```
 ├── scripts/                        # Folder containing experiment setups
