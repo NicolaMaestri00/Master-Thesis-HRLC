@@ -58,6 +58,7 @@ The hierarchical structure and cross-task correlations represent valuable superv
 
 We further investigated the case where regression tasks are available. The consensus mechanism discussed so far cannot be applied directly to this scenario. Therefore, we introduced a simple loss to align predictions on the regression and classification tasks. The underlying idea is to learn for each class, an estimated value for the regression task, and then to increase the confidence in classes whose estimated value aligns with the regression prediction while lowering those where a large mismatch is observed. In the ideal case, the learned parameters converge to the per-class mean value over the regression task, providing a physically interpretable quantity.
 
+<!--
 ## Datasets
 
 ## Model
@@ -89,6 +90,6 @@ We further investigated the case where regression tasks are available. The conse
 └── README.md
 
 ```
-
+-->
 ## Main Reference Papers
 - [1] 
