@@ -15,11 +15,11 @@ Many approaches have been explored to deal with this constraint. One of the most
 
 <p align="center">
   <a href="http://3.120.171.141/21kuq/">
-    <img src="images/tile_21KUQ.png" width="180">
+    <img src="images/21kuq.png" width="180">
   </a>
   <img src="images/sud_america.png" width="400">
   <a href="http://3.120.171.141/22kgv/">
-    <img src="images/tile_22KGV.png" width="180">
+    <img src="images/22kgv.png" width="180">
   </a>
 </p>
 
