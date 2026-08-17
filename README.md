@@ -1,8 +1,6 @@
 # 🗺️ Weakly Supervised Land Cover Mapping 
 
-> 🏫 University of Trento | 🛰️ Remote Sensing Lab | 📅 A.Y. 2024/2025 | 🎓 Master Thesis
-
-> 🚦Codice sorgente disponibile su richiesta.
+> 🏫 University of Trento | 🛰️ Remote Sensing Lab | 🎓 Master Thesis | 🚦Codice sorgente su richiesta
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/4dbe472a-9cca-4cff-8756-371fbb9e9bbc" controls width="720">
