@@ -7,6 +7,24 @@
   </video>
 </p>
 
+## Abstract
+
+
+Many approaches have been explored to deal with this constraint. One of the most promising is weak supervision, which consists of leveraging less reliable labels from multiple heterogeneous sources to create the large-scale datasets required for training deep learning models. By integrating information from diverse sources, this approach can potentially yield more robust systems capable of identifying features and patterns more effectively. Many specific aspects need to be considered while developing weak supervision strategies. Data from different sources must first be harmonized to a common spatial reference system and resolution. Geolocation errors, projection distortions and resampling artifacts can cause spatial misalignments, leading to systematic misclassifications. Moreover, labels assigned to the same pixel may be in conflict across various sources due to differences in classification schemes or labeling errors. Temporal mismatches add further complexity: maps are often produced at different times, so discrepancies may reflect real land-cover changes rather than classification errors. Finally, label uncertainty can be due to specific samples, to their classes or to model biases caused by a domain shift with respect to the training region.
+
+
+<p align="center">
+  <a href="http://3.120.171.141/21kuq/">
+    <img src="images/tile_21KUQ.png" width="180">
+  </a>
+  <img src="images/sud_america.png" width="400">
+  <a href="http://3.120.171.141/22kgv/">
+    <img src="images/tile_22KGV.png" width="180">
+  </a>
+</p>
+
+<p align="center"><b>Clicca su una tile per visualizzare i risultati</b></p>
+
 ## Motivation
 
 How big is the Amazon rainforest? Providing a reasonable estimate has been a challenging task for decades. Early attempts relied on ground campaigns, which were demanding and of limited accuracy. It was only with the advent of satellites that the margin of error reduced drastically. Given a satellite acquisition of the Amazon basin, one simply needs to count all pixels associated with the rainforest. Multiplying the number of pixels by their spatial resolution we get our estimate: around 6 million square kilometers.
@@ -28,6 +46,14 @@ Our main contributions can be summarized as follows:
 2. We propose a multi-task weak supervision framework that exploits class relationships across different label sources through a consensus mechanism.
 3. We introduce a loss function that aligns classification and regression tasks, with learned weights that reflect physically meaningful inter-class relationships.
 4. We show that learned relationships can be exploited for domain adaptation.
+
+## Multi Level Semantic Consensus
+
+## Datasets
+
+## Model
+
+## Results
 
 ## Study Area
 
