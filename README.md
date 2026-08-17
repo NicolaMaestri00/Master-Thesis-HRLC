@@ -1,4 +1,4 @@
-# 🗺️ High Resolution Land Cover Mapping
+# 🗺️ Weakly Supervised Land Cover Mapping 
 
 > 🏫 University of Trento | 🛰️ Remote Sensing Lab | 📅 A.Y. 2024/2025 | 🎓 Master Thesis
 
@@ -11,12 +11,7 @@
   <img src="images/legend.png" width="720">
 </p>
 
-Land cover mapping is a core topic in remote sensing, which consists of segmenting an image of an area by assigning each pixel to a class according to its biophysical surface type. LC mapping provides structured information that is essential to monitor deforestation, track urban expansion, assess the impact of agricultural practices and support climate adaptation policies. As the demand for reliable, high-resolution land cover products continues to grow, so does the need to overcome the primary bottleneck that currently limits their accuracy: the scarcity of high-quality training labels.
-
-The availability of large datasets is necessary to train deep learning models. However, labeling the data is expensive and time-consuming. Field campaigns are the most reliable way to collect ground truth references, but they are costly and not always feasible due to the extent of the areas to cover. Relying on photo-interpretation by teams of experts partially alleviates the burden; nevertheless, this activity is still slow and yields only small sets of highly accurate labels. An interesting research direction is to exploit the growing number of land cover products available as weak label sources to train new models. Although they present several misclassifications, such as artifacts and temporal inconsistencies, they represent a large source of readily available information at little to no cost.
-
-In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous digital products. We proposed a multi-task framework where a set of land cover products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al. [1].
-
+Land cover (LC) mapping provides structured information essential to inform public and private decisions. As the demand for reliable, high-resolution LC products continues to grow, so does the need to overcome the primary bottleneck that currently limits their accuracy: the scarcity of high-quality training labels. An interesting research direction is to exploit LC products already available as weak label sources to train new models. Although they present several misclassifications, such as artifacts and temporal inconsistencies, they represent a large source of readily available information at little to no cost. In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous LC products. We proposed a multi-task framework where a set of LC products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al. [1].
 
 <p align="center"><b>Study Areas: click on a tile to visualize the results</b></p>
 <p align="center">
@@ -28,8 +23,6 @@ In this thesis we addressed the problem of how to extract valuable information f
     <img src="images/22kgv.png" width="180">
   </a>
 </p>
-
-
 
 ## Motivation
 
@@ -57,8 +50,6 @@ Our main contributions can be summarized as follows:
 
 ## Multi Level Semantic Consensus
 
-In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous digital products. We proposed a multi-task framework where a set of land cover products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al.\ \cite{SAHC_2021_perantoni}.
-
 In the original paper, the mechanism had been developed to exploit the hierarchical structure inherent to land cover classes. Specifically, a set of hierarchical levels is introduced with a corresponding set of classes. However, the relationships between coarser and finer classes are not hard-coded but are instead learned at training time. In particular, the hierarchical dependencies are encoded into matrices representing the joint probability of observing one class at a certain granularity level while a second class is present at another level. We observed that the proposed mechanism can be generalised beyond the hierarchical framework by interpreting the learned relationships as correlations between independent predictions. In this way, hierarchical levels can be replaced by heterogeneous tasks while the learnable matrices continue to align predictions between different classification heads.
 
 The learned cross-task matrices encode the joint probability of co-occurrence of two classes across two different tasks and can be used to project predictions from one task onto another. To learn these matrices, an additional penalty term is introduced that penalises disagreement between predictions at different levels. For each classification task, a consensus is first reached among the projected predictions from all other tasks. Then, we penalize the discrepancy of each projection from the obtained consensus.
@@ -67,25 +58,10 @@ The hierarchical structure and cross-task correlations represent valuable superv
 We further investigated the case where regression tasks are available. The consensus mechanism discussed so far cannot be applied directly to this scenario. Therefore, we introduced a simple loss to align predictions on the regression and classification tasks. The underlying idea is to learn for each class, an estimated value for the regression task, and then to increase the confidence in classes whose estimated value aligns with the regression prediction while lowering those where a large mismatch is observed. In the ideal case, the learned parameters converge to the per-class mean value over the regression task, providing a physically interpretable quantity.
 
 ## Datasets
-We considered two tiles of \SI{100}{km} $\times$ \SI{100}{km} at \SI{10}{\metre \per px} resolution, belonging to different climate regions, to test our method. As raw data we considered Sentinel-2 time series and, as weak labels, three land cover maps: HRLC Phase~1, WorldCover, and MapBiomas. Additionally, we used OpenStreetMap to correct labels and the Forest Map as the regression task.
 
 ## Model
 
 ## Results
-
-## Study Area
-
-<p align="center">
-  <a href="http://3.120.171.141/21kuq/">
-    <img src="images/tile_21KUQ.png" width="180">
-  </a>
-  <img src="images/sud_america.png" width="400">
-  <a href="http://3.120.171.141/22kgv/">
-    <img src="images/tile_22KGV.png" width="180">
-  </a>
-</p>
-
-<p align="center"><i>Clicca su una tile per aprire la visualizzazione interattiva →</i></p>
 
 ## Organizzazione repository
 
