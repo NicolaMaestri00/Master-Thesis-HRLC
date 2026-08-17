@@ -11,12 +11,14 @@
   <img src="images/legend.png" width="720">
 </p>
 
+Land cover mapping is a core topic in remote sensing, which consists of segmenting an image of an area by assigning each pixel to a class according to its biophysical surface type. LC mapping provides structured information that is essential to monitor deforestation, track urban expansion, assess the impact of agricultural practices and support climate adaptation policies. As the demand for reliable, high-resolution land cover products continues to grow, so does the need to overcome the primary bottleneck that currently limits their accuracy: the scarcity of high-quality training labels.
+
+The availability of large datasets is necessary to train deep learning models. However, labeling the data is expensive and time-consuming. Field campaigns are the most reliable way to collect ground truth references, but they are costly and not always feasible due to the extent of the areas to cover. Relying on photo-interpretation by teams of experts partially alleviates the burden; nevertheless, this activity is still slow and yields only small sets of highly accurate labels. An interesting research direction is to exploit the growing number of land cover products available as weak label sources to train new models. Although they present several misclassifications, such as artifacts and temporal inconsistencies, they represent a large source of readily available information at little to no cost.
+
+In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous digital products. We proposed a multi-task framework where a set of land cover products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al. [1].
 
 
-
-Many approaches have been explored to deal with this constraint. One of the most promising is weak supervision, which consists of leveraging less reliable labels from multiple heterogeneous sources to create the large-scale datasets required for training deep learning models. By integrating information from diverse sources, this approach can potentially yield more robust systems capable of identifying features and patterns more effectively. Many specific aspects need to be considered while developing weak supervision strategies. Data from different sources must first be harmonized to a common spatial reference system and resolution. Geolocation errors, projection distortions and resampling artifacts can cause spatial misalignments, leading to systematic misclassifications. Moreover, labels assigned to the same pixel may be in conflict across various sources due to differences in classification schemes or labeling errors. Temporal mismatches add further complexity: maps are often produced at different times, so discrepancies may reflect real land-cover changes rather than classification errors. Finally, label uncertainty can be due to specific samples, to their classes or to model biases caused by a domain shift with respect to the training region.
-
-
+<p align="center"><b>Study Areas: click on a tile to visualize the results</b></p>
 <p align="center">
   <a href="http://3.120.171.141/21kuq/">
     <img src="images/21kuq.png" width="180">
@@ -27,7 +29,7 @@ Many approaches have been explored to deal with this constraint. One of the most
   </a>
 </p>
 
-<p align="center"><b>Clicca su una tile per visualizzare i risultati</b></p>
+
 
 ## Motivation
 
