@@ -13,7 +13,8 @@
 
 Land cover (LC) mapping provides structured information essential to inform public and private decisions. As the demand for reliable, high-resolution LC products continues to grow, so does the need to overcome the primary bottleneck that currently limits their accuracy: the scarcity of high-quality training labels. An interesting research direction is to exploit LC products already available as weak label sources to train new models. Although they present several misclassifications, such as artifacts and temporal inconsistencies, they represent a large source of readily available information at little to no cost. In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous LC products. We proposed a multi-task framework where a set of LC products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al. [1].
 
-<p align="center"><b>Study Areas: click on a tile to visualize the results</b></p>
+<p align="center"><b>CLICK on a tile to visualize the results</b></p>
+
 <p align="center">
   <a href="http://3.120.171.141/21kuq/">
     <img src="images/21kuq.png" width="180">
