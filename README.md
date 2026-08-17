@@ -2,6 +2,8 @@
 
 > 🏫 University of Trento | 🛰️ Remote Sensing Lab | 📅 A.Y. 2024/2025 | 🎓 Master Thesis
 
+> 🚦Codice sorgente disponibile su richiesta.
+
 <p align="center">
   <video src="https://github.com/user-attachments/assets/4dbe472a-9cca-4cff-8756-371fbb9e9bbc" controls width="720">
   </video>
@@ -11,7 +13,7 @@
   <img src="images/legend.png" width="720">
 </p>
 
-Land cover (LC) mapping provides structured information essential to inform public and private decisions. As the demand for reliable, high-resolution LC products continues to grow, so does the need to overcome the primary bottleneck that currently limits their accuracy: the scarcity of high-quality training labels. An interesting research direction is to exploit LC products already available as weak label sources to train new models. Although they present several misclassifications, such as artifacts and temporal inconsistencies, they represent a large source of readily available information at little to no cost. In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous LC products. We proposed a multi-task framework where a set of LC products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al. [1].
+Land cover (LC) mapping provides structured information essential to inform public and private decisions. As the demand for reliable, high-resolution LC products continues to grow, so does the need to overcome the primary bottleneck that currently limits their accuracy: the scarcity of high-quality training labels. An interesting research direction is to exploit LC products already available as weak label sources to train new models. Although they present several misclassifications, such as artifacts and temporal inconsistencies, they represent a large source of readily available information at little to no cost. In this thesis we addressed the problem of how to extract valuable information from a pool of heterogeneous LC products. We proposed a multi-task framework where a set of LC products is used as independent tasks to train our model. The complementary supervision signals provided by the different sources allow the shared backbone to learn a rich data representation encoding relevant information for all tasks. This embedding vector is then mapped to final predictions by the respective classification heads. The hard parameter sharing paradigm already encourages the model to integrate information from the various tasks. However, to ensure further consistency among the final outputs, we introduced a consensus mechanism inspired by Weikmann et al. [[1]](#ref1).
 
 <p align="center"><b>CLICK on a tile to visualize the results</b></p>
 
@@ -40,7 +42,7 @@ Many approaches have been explored to deal with this constraint. One of the most
 
 ## Proposed Approach
 
-In this work, we propose a multi-task weakly supervised framework for land cover mapping that exploits a set of heterogeneous digital products as independent tasks. The architecture consists of a shared backbone and multiple classification heads, each yielding predictions over a distinct task. We adapt the consensus mechanism proposed in [1], originally developed to learn the hierarchical structure inherent in land cover classes, and show that the same principle can be applied to learn cross-task correlations between classes across different classification tasks. Building on this, we develop an integrated framework that simultaneously enforces hierarchical and cross-task consistency.
+In this work, we propose a multi-task weakly supervised framework for land cover mapping that exploits a set of heterogeneous digital products as independent tasks. The architecture consists of a shared backbone and multiple classification heads, each yielding predictions over a distinct task. We adapt the consensus mechanism proposed in [[1]](#ref1), originally developed to learn the hierarchical structure inherent in land cover classes, and show that the same principle can be applied to learn cross-task correlations between classes across different classification tasks. Building on this, we develop an integrated framework that simultaneously enforces hierarchical and cross-task consistency.
 The combination of hard parameter sharing with the proposed consensus mechanism allows the model to learn a robust data representation, mitigating the adverse effects of label noise present in the weak sources. A key strength of the approach is that semantic consistency is enforced in a fully self-supervised manner, and the learned relationships are encoded in interpretable matrices. To validate the method, we consider four freely available digital products as independent tasks within two large areas in Amazonia: three land cover maps and a canopy height map. Despite their differing resolutions, classification schemes and temporal inconsistencies, the framework successfully integrates the complementary supervision signals provided by each source, yielding more robust data representations. Finally, we investigate the use of learned cross-task relationships for domain adaptation, showing that when inter-task correlations are sufficiently stable across regions, they can be leveraged to recover supervision for a missing label source in the target area.
 
 Our main contributions can be summarized as follows:
@@ -59,13 +61,50 @@ The hierarchical structure and cross-task correlations represent valuable superv
 We further investigated the case where regression tasks are available. The consensus mechanism discussed so far cannot be applied directly to this scenario. Therefore, we introduced a simple loss to align predictions on the regression and classification tasks. The underlying idea is to learn for each class, an estimated value for the regression task, and then to increase the confidence in classes whose estimated value aligns with the regression prediction while lowering those where a large mismatch is observed. In the ideal case, the learned parameters converge to the per-class mean value over the regression task, providing a physically interpretable quantity.
 
 <!--
-## Datasets
+
 
 ## Model
 
+
+-->
+
+## Datasets
+  
+**Satellite imagery**:
+  - *Time Series*: 12 monthly pre-processed composites derived from Sentinel-2 multispectral acquisitions within a two-month window.
+  - *Channels*: 12 stacked bands involving 10 higher resolution Sentinel 2 channels, NDVI, NDWI
+  - *Study Areas*: tile 21KUQ, tile 22KGV [Military Grid Reference System], each spanning 100km x 100km
+  - *Resolution*: 10m per pixel 
+
+**Weak Labels**:
+  - [*HRLC*](https://climate.esa.int/en/projects/high-resolution-land-cover/) Phase 1 map, a land cover map at 10mpx resolution for 2019
+  - [*WorldCover*](https://esa-worldcover.org/en), a land cover map at 10mpx resolution for 2020
+  - [*MapBiomas*](https://mapbiomas.org/), a land cover map at 10mpx resolution for 2019
+  - [*Global Forest Canopy Height*](https://glad.umd.edu/dataset/gedi), a forestry canopy height map at 30mpx resolution for 2019
+  - [*OpenStreetMap*](https://www.openstreetmap.org), a vector map of streets for 2019
+
 ## Results
 
-## Organizzazione repository
+<p align="center">
+  <a href="http://3.120.171.141/21kuq/">
+    <img src="images/21kuq.png" width="180">
+  </a>
+  <img src="images/sud_america.png" width="400">
+  <a href="http://3.120.171.141/22kgv/">
+    <img src="images/22kgv.png" width="180">
+  </a>
+</p>
+<p align="center"><b>CLICK on a tile to visualize the results</b></p>
+
+The new land cover maps obtained for tile 21KUQ and tile 22KGV can be visualized by clicking on the respective image in the picture above. In particular, each web page provides the rgb image derived from the December composite, the HRLC-Phase 1 map and the map provided by the new model.
+
+<!--
+learnt relationship and some tables
+-->
+
+## Struttura Progetto
+
+> 🚦Codice sorgente disponibile su richiesta.
 
 ```
 ├── scripts/                        # Folder containing experiment setups
@@ -90,6 +129,7 @@ We further investigated the case where regression tasks are available. The conse
 └── README.md
 
 ```
--->
+
 ## Main Reference Papers
-- [1] 
+<a id="ref1"></a>
+[1] G. Weikmann, G. Perantoni, and L. Bruzzone, "A Semantics-Aware Hierarchical Self-Supervised Approach to Classification of Remote Sensing Images." [[arXiv]](https://arxiv.org/abs/2510.04916)
