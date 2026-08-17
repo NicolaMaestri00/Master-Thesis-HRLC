@@ -83,6 +83,7 @@ We further investigated the case where regression tasks are available. The conse
 
 ## Results
 
+<p align="center"><b>CLICK on a tile to visualize the results</b></p>
 <p align="center">
   <a href="http://3.120.171.141/21kuq/">
     <img src="images/21kuq.png" width="180">
@@ -92,7 +93,6 @@ We further investigated the case where regression tasks are available. The conse
     <img src="images/22kgv.png" width="180">
   </a>
 </p>
-<p align="center"><b>CLICK on a tile to visualize the results</b></p>
 
 The new land cover maps obtained for tile 21KUQ and tile 22KGV can be visualized by clicking on the respective image in the picture above. In particular, each web page provides the rgb image derived from the December composite, the HRLC-Phase 1 map and the map provided by the new model.
 
