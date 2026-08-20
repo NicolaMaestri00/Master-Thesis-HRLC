@@ -16,7 +16,7 @@ Land cover (LC) mapping provides structured information essential to inform publ
 <p align="center"><b>CLICK on a tile to visualize the results</b></p>
 
 <p align="center">
-  <a href="http://3.120.171.141/21kuq/">
+  <a href="https://landcovermap.mooo.com/21kuq/">
     <img src="images/21kuq.png" width="180">
   </a>
   <img src="images/sud_america.png" width="400">
