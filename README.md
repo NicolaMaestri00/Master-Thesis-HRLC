@@ -16,11 +16,11 @@ Land cover (LC) mapping provides structured information essential to inform publ
 <p align="center"><b>CLICK on a tile to visualize the results</b></p>
 
 <p align="center">
-  <a href="https://landcovermap.mooo.com/21kuq/">
+  <a href="https://nima.spacetechnology.net/landcovermaps/tile_21kuq/">
     <img src="images/21kuq.png" width="180">
   </a>
   <img src="images/sud_america.png" width="400">
-  <a href="https://landcovermap.mooo.com/22kgv/">
+  <a href="https://nima.spacetechnology.net/landcovermaps/tile_22kgv/">
     <img src="images/22kgv.png" width="180">
   </a>
 </p>
